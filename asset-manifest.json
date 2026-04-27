@@ -1,0 +1,15 @@
+{
+  "files": {
+    "main.css": "/Word-App/static/css/main.a9a44919.css",
+    "main.js": "/Word-App/static/js/main.e3124e42.js",
+    "static/js/453.67c4c027.chunk.js": "/Word-App/static/js/453.67c4c027.chunk.js",
+    "index.html": "/Word-App/index.html",
+    "main.a9a44919.css.map": "/Word-App/static/css/main.a9a44919.css.map",
+    "main.e3124e42.js.map": "/Word-App/static/js/main.e3124e42.js.map",
+    "453.67c4c027.chunk.js.map": "/Word-App/static/js/453.67c4c027.chunk.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.a9a44919.css",
+    "static/js/main.e3124e42.js"
+  ]
+}
