@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 
-export default function Textform({ heading }) {
+export default function Textform({ mode ,heading}) {
   const [text, settext] = useState('');
   const [alert, setAlert] = useState(null);
 
@@ -16,23 +16,40 @@ export default function Textform({ heading }) {
   };
 
   const handleUpclick = () => {
+    if (text.trim().length === 0) {
+    showAlert("Please enter some text first!", "warning");
+    return;
+  }
     let newText = text.toUpperCase();
     settext(newText);
     showAlert("Converted to Uppercase!", "success");
   };
 
   const handleLoclick = () => {
+    if (text.trim().length === 0) {
+    showAlert("Please enter some text first!", "warning");
+    return;
+    }
     let newText = text.toLowerCase();
     settext(newText);
     showAlert("Converted to Lowercase!", "success");
   };
 
   const handleClearclick = () => {
+    if (text.trim().length === 0) {
+    showAlert("Nothing to clear!", "warning");
+    return;
+  }
+
     settext("");
     showAlert("Text Cleared!", "success");
   };
 
   const handleCamelCase = () => {
+     if (text.trim().length === 0) {
+    showAlert("Please enter some text first!", "warning");
+    return;
+  }
     let newText = text
       .toLowerCase()
       .replace(/(^\s*\w|[.]\s*\w)/g, (char) => char.toUpperCase());
@@ -42,6 +59,11 @@ export default function Textform({ heading }) {
   };
 
   const handleCopy = () => {
+    if (text.trim().length === 0) {
+    showAlert("Nothing to copy!", "warning");
+    return;
+  }
+
     navigator.clipboard.writeText(text);
     showAlert("Text copied to clipboard!", "success");
   };
@@ -64,32 +86,26 @@ export default function Textform({ heading }) {
         <h1>{heading}</h1>
 
         <div className="mb-3">
-          <textarea
-            className="form-control"
-            value={text}
-            placeholder="Enter text here"
-            onChange={handleOnchange}
-            rows="10"
-          ></textarea>
+           <textarea className="form-control" value={text} onChange={handleOnchange} style={{backgroundColor: mode==='dark'?'#13466e':'white', color: mode==='dark'?'white':'#042743'}} id="myBox" rows="8"></textarea>
         </div>
 
-        <button className="btn btn-primary mx-2" onClick={handleUpclick}>
+        <button className="btn btn-primary mx-2 my-2" onClick={handleUpclick}>
           Uppercase
         </button>
 
-        <button className="btn btn-primary mx-2" onClick={handleLoclick}>
+        <button className="btn btn-primary mx-2 my-2" onClick={handleLoclick}>
           Lowercase
         </button>
 
-        <button className="btn btn-primary mx-2" onClick={handleClearclick}>
+        <button className="btn btn-primary mx-2 my-2" onClick={handleClearclick}>
           Clear
         </button>
 
-        <button className="btn btn-primary mx-2" onClick={handleCamelCase}>
+        <button className="btn btn-primary mx-2 my-2" onClick={handleCamelCase}>
           Sentence Case
         </button>
 
-        <button className="btn btn-primary mx-2" onClick={handleCopy}>
+        <button className="btn btn-primary mx-2 my-2" onClick={handleCopy}>
           Copy Text
         </button>
 

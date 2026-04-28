@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import { Link } from "react-router-dom";
 
 export default function Navbar({ title = 'Set title here', aboutText = 'About App' }) {
 
@@ -21,7 +22,7 @@ export default function Navbar({ title = 'Set title here', aboutText = 'About Ap
       <nav className={`navbar navbar-expand-lg navbar-${mode} bg-${mode}`}>
         <div className="container-fluid">
 
-          <a className="navbar-brand" href="/">{title}</a>
+          <Link className="navbar-brand" to="/">{title}</Link>
 
           <button className="navbar-toggler" type="button" data-bs-toggle="collapse"
             data-bs-target="#navbarSupportedContent">
@@ -32,11 +33,11 @@ export default function Navbar({ title = 'Set title here', aboutText = 'About Ap
             <ul className="navbar-nav me-auto mb-2 mb-lg-0">
 
               <li className="nav-item">
-                <a className="nav-link active" href="/">Home</a>
+                <Link className="nav-link active" to="/">Home</Link>
               </li>
 
               <li className="nav-item">
-                <a className="nav-link" href="/">{aboutText}</a>
+                <Link className="nav-link" to="/about">{aboutText}</Link>
               </li>
 
             </ul>
